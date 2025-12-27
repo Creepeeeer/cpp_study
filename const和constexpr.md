@@ -165,3 +165,25 @@ public:
 };
 ```
 
+
+
+### 多文件编写
+
+**const是内部链接（你在头文件里写const int N=100，每个.cpp都会生成一个N不会相互冲突)**
+
+如果想多个.cpp共享一个N
+
+1. ```c++
+   //.h 起声明作用
+   extern const int N;
+   //在一个.cpp里定义
+   const int N=100;
+   ```
+
+2. ```c++
+   //inline 变量 头文件定义且全局唯一
+   //.h 
+   inline const int N=100;
+   ```
+
+   
